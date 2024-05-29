@@ -3,10 +3,15 @@ from rest_framework.response import Response
 from .models import Blog
 from .serializers import BlogSerializers
 from rest_framework import status
+from django.shortcuts import render
 
 # Create your views here.
 
+def home_page(request):
+    return render(request, 'index.html', {})
 
+
+    
 @api_view(['GET']) 
 def get_all_blogs(request):
     blogs = Blog.objects.all()
